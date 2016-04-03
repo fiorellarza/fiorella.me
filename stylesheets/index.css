@@ -323,7 +323,7 @@ table {
     .posts a:hover {
       text-decoration: none; }
       .posts a:hover + img {
-        opacity: 0.6;
+        opacity: 0.55;
         transform: scale(1.05);
         transition: transform 12s, opacity 1s; }
   .posts h3 {
@@ -351,7 +351,7 @@ table {
     top: 0;
     left: 0;
     object-fit: cover;
-    opacity: 0.5;
+    opacity: 0.4;
     height: 100%;
     width: 100%;
     transition: transform 4s, opacity 1s; }
