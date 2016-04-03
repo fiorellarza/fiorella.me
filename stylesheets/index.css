@@ -361,6 +361,8 @@ table {
   width: 100%;
   position: absolute;
   z-index: 0; }
+  .spinner.-hidden {
+    display: none; }
   @media (min-width: 640px) {
     .spinner {
       min-height: 500px; } }
