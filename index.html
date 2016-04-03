@@ -24,7 +24,7 @@
   <link href="//fonts.googleapis.com/css?family=Lato:100,300,400,900&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   <link rel="icon" type="image/ico" href="images/favicon.ico" />
   <link href="stylesheets/index.css" rel="stylesheet" />
-  <script src="javascripts/jquery.js"></script><script src="javascripts/all.js"></script><script src="javascripts/fastclick.js"></script>
+  <script src="javascripts/fast_click.js"></script><script src="javascripts/handlebars.js"></script><script src="javascripts/jquery.js"></script><script src="javascripts/all.js"></script>
 </head>
 
 <body class="page--index">
@@ -41,38 +41,24 @@
   </div>
 </section>
 
-<section class="posts">
+<section id="posts" class="posts">
+  <div id="spinner" class="spinner">
+    <div>
+      <div class="spinner__dot1"></div>
+      <div class="spinner__dot2"></div>
+    </div>
+  </div>
   <ul>
-    <li>
-      <a href="https://medium.com/think-big-work-smart/looking-back-at-2-5-years-at-envato-b126d2d9873f" target="_blank">
-        <h3>Looking back at 2.5 years at Envato</h3>
-      </a>
-      <img src="images/post-5.jpg" alt="" />
-    </li>
-    <li>
-      <a href="https://medium.com/@damirkotoric/day-2-of-getting-my-drone-license-i-learned-about-vhf-radios-and-the-phonic-alphabet-91f654a8ea2a" target="_blank">
-        <h3>Day 2 of getting my drone license: I learned about VHF radios and the phonic alphabet</h3>
-      </a>
-      <img src="images/post-4.jpg" alt="" />
-    </li>
-    <li>
-      <a href="https://medium.com/@damirkotoric/day-1-of-getting-my-drone-license-i-zenned-out-and-learned-about-radio-waves-a1d90056a90f" target="_blank">
-        <h3>Day 1 of getting my drone license: I Zenned out and learned about radio waves</h3>
-      </a>
-      <img src="images/post-3.jpg" alt="" />
-    </li>
-    <li>
-      <a href="https://medium.com/@damirkotoric/i-quit-my-day-job-to-fly-drones-8ad9a680602f#.528kb0qoy" target="_blank">
-        <h3>I quit my day job to fly drones</h3>
-      </a>
-      <img src="images/post-2.jpg" alt="" />
-    </li>
-    <li>
-      <a href="https://medium.com/@damirkotoric/the-monster-guide-to-starting-a-drone-photography-business-in-australia-2b69d1b53351#.floqjobpf" target="_blank">
-        <h3>The monster guide to starting a drone photography business in Australia</h3>
-      </a>
-      <img src="images/post-1.jpg" alt="" />
-    </li>
+    <script id="handlebars-posts" type="text/x-handlebars-template">
+      {{#each posts}}
+      <li>
+        <a href="{{url}}" target="_blank">
+          <h3>{{title}}</h3>
+        </a>
+        <img src="{{image_url}}" alt="" />
+      </li>
+      {{/each}}
+    </script>
   </ul>
 </section>
 

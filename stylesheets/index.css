@@ -219,6 +219,26 @@ table {
     visibility: hidden;
     padding: 0;
     margin: 0; } }
+@-webkit-keyframes sk-rotate {
+  100% {
+    transform: rotate(360deg); } }
+@keyframes sk-rotate {
+  100% {
+    transform: rotate(360deg); } }
+@-webkit-keyframes sk-bounce {
+  0% {
+    transform: scale(0); }
+  50% {
+    transform: scale(1); }
+  100% {
+    transform: scale(0); } }
+@keyframes sk-bounce {
+  0% {
+    transform: scale(0); }
+  50% {
+    transform: scale(1); }
+  100% {
+    transform: scale(0); } }
 .hero {
   background: linear-gradient(to right, #1f3e7d, #496397);
   color: #f9f9f9;
@@ -272,7 +292,20 @@ table {
       top: -19px; } }
 
 .posts {
-  background: #0a152e; }
+  background: #0a152e;
+  min-height: 300px;
+  overflow: hidden; }
+  @media (min-width: 640px) {
+    .posts {
+      min-height: 500px; } }
+  .posts.-loaded .spinner {
+    animation: fadeOut 0.5s;
+    visibility: hidden; }
+  .posts.-loaded li {
+    animation: fadeIn 0.3s; }
+  .posts ul {
+    position: relative;
+    z-index: 1; }
   .posts li {
     border-top: 1px solid #000;
     overflow: hidden;
@@ -290,8 +323,9 @@ table {
     .posts a:hover {
       text-decoration: none; }
       .posts a:hover + img {
-        opacity: 0.65;
-        transform: scale(1.005); }
+        opacity: 0.6;
+        transform: scale(1.05);
+        transition: transform 12s, opacity 1s; }
   .posts h3 {
     max-width: 1200px;
     margin-left: auto;
@@ -320,7 +354,41 @@ table {
     opacity: 0.5;
     height: 100%;
     width: 100%;
-    transition: all 1.5s; }
+    transition: transform 4s, opacity 1s; }
+
+.spinner {
+  height: 300px;
+  width: 100%;
+  position: absolute;
+  z-index: 0; }
+  @media (min-width: 640px) {
+    .spinner {
+      min-height: 500px; } }
+  .spinner > div {
+    animation: sk-rotate 1s infinite linear;
+    width: 60px;
+    height: 60px;
+    left: 50%;
+    top: 50%;
+    margin-left: -30px;
+    margin-top: -30px;
+    position: absolute;
+    text-align: center; }
+
+.spinner__dot1, .spinner__dot2 {
+  width: 60%;
+  height: 60%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  background-color: #abbbd5;
+  border-radius: 100%;
+  animation: sk-bounce 1s infinite ease-in-out; }
+
+.spinner__dot2 {
+  top: auto;
+  bottom: 0;
+  animation-delay: -0.5s; }
 
 *, *:before, *:after {
   -moz-box-sizing: border-box;
