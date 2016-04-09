@@ -285,6 +285,7 @@ table {
   display: inline-block;
   height: 20px;
   top: -15px;
+  pointer-events: none;
   position: relative; }
   @media (min-width: 1200px) {
     .hero__signature {
