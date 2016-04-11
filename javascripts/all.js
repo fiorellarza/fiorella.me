@@ -38,7 +38,8 @@ function showPosts(obj) {
       posts.push(post)
     }
   }
-  var context = { posts }
+  console.log(posts)
+  var context = { 'posts': posts }
   var html = template(context)
   $("#posts").addClass("-loaded").find("> ul").append(html)
   $("#spinner").one('webkitAnimationEnd oanimationend oAnimationEnd msAnimationEnd animationend', function(e) {
