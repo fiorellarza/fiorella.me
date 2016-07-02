@@ -27,17 +27,20 @@ function loadMediumPosts() {
 function showPosts(obj) {
   var source = $("#handlebars-posts").html()
   var template = Handlebars.compile(source)
+  var jsonPosts = $(obj["payload"]["references"]["Post"])[0]
   var posts = []
-  for (var i=0; i < obj["payload"]["posts"].length; i++) {
-    if (obj["payload"]["posts"][i]["inResponseToPostId"] == "") {
+  $.each(jsonPosts, function(key, value) {
+    $jsonPost = $(value)[0]
+    console.log($jsonPost)
+    if ($jsonPost["inResponseToPostId"] == "") {
       post = {
-        title: obj["payload"]["posts"][i]["title"],
-        url: "https://medium.com/@damirkotoric/" + obj["payload"]["posts"][i]["uniqueSlug"],
-        image_url: "https://cdn-images-1.medium.com/" + obj["payload"]["posts"][i]["virtuals"]["previewImage"]["imageId"]
+        title: $jsonPost["title"],
+        url: "https://medium.com/@damirkotoric/" + $jsonPost["uniqueSlug"],
+        image_url: "https://cdn-images-1.medium.com/" + $jsonPost["virtuals"]["previewImage"]["imageId"]
       }
       posts.push(post)
     }
-  }
+  })
   console.log(posts)
   var context = { 'posts': posts }
   var html = template(context)
