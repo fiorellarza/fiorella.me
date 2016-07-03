@@ -1,6 +1,7 @@
 .hero
-  background: linear-gradient(to right, $blue-dark, $blue)
-  color: $white-almost
+  background: linear-gradient(-30deg, lighten($purple, 20%), $purple)
+  background: url(/images/fiorella.jpg)
+  color: $white
   display: flex
   align-items: center
   min-height: 100vh
@@ -10,6 +11,9 @@
 
   > div
     +container
+
+  img
+    max-width: 100%
 
   a
     color: $white
