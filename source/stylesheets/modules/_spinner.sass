@@ -1,0 +1,36 @@
+.spinner
+  height: 300px
+  width: 100%
+  position: absolute
+  z-index: 0
+  &.-hidden
+    display: none
+  +susy-breakpoint($breakpoint-1...)
+    min-height: 800px
+  > div
+    animation: sk-rotate 1s infinite linear
+    width: 60px
+    height: 60px
+    left: 50%
+    top: 50%
+    margin-left: -30px
+    margin-top: -30px
+    position: absolute
+    text-align: center
+    +susy-breakpoint($breakpoint-1...)
+      top: 30%
+
+.spinner__dot1, .spinner__dot2
+  width: 60%
+  height: 60%
+  display: inline-block
+  position: absolute
+  top: 0
+  background-color: $blue-very-light
+  border-radius: 100%
+  animation: sk-bounce 1s infinite ease-in-out
+
+.spinner__dot2
+  top: auto
+  bottom: 0
+  animation-delay: -0.5s
