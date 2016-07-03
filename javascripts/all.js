@@ -7,7 +7,7 @@ $(document).ready(function() {
 function loadMediumPosts() {
   // Using YQL here https://developer.yahoo.com/yql/ because Medium won't let me JSONP
   var yql_url = 'https://query.yahooapis.com/v1/public/yql'
-  var url = 'https://medium.com/@damirkotoric/latest?format=json'
+  var url = 'https://medium.com/@partidibambola/latest?format=json'
   $.ajax({
     url: yql_url,
     data: {

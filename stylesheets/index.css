@@ -240,8 +240,9 @@ table {
   100% {
     transform: scale(0); } }
 .hero {
-  background: linear-gradient(to right, #1f3e7d, #496397);
-  color: #f9f9f9;
+  background: linear-gradient(-30deg, #b44b8e, #6c2d55);
+  background: url(../images/fiorella.jpg);
+  color: #ffffff;
   display: flex;
   align-items: center;
   min-height: 100vh;
@@ -257,6 +258,8 @@ table {
       content: " ";
       display: block;
       clear: both; }
+  .hero img {
+    max-width: 100%; }
   .hero a {
     color: #ffffff; }
     .hero a:hover {
@@ -306,7 +309,7 @@ table {
       top: -19px; } }
 
 .posts {
-  background: #0a152e;
+  background: #481e39;
   min-height: 500px;
   overflow: hidden;
   position: relative; }
@@ -405,7 +408,7 @@ table {
   display: inline-block;
   position: absolute;
   top: 0;
-  background-color: #abbbd5;
+  background-color: #e1b7d2;
   border-radius: 100%;
   animation: sk-bounce 1s infinite ease-in-out; }
 
@@ -430,6 +433,13 @@ html {
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.4; }
+
+h1 {
+  font-size: 30px; }
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: 40px;
+      font-weight: 400; } }
 
 p {
   line-height: 1.4;
