@@ -4,44 +4,15 @@ $(document).ready(function() {
   loadMediumPosts()
 })
 
-// $.ajax({
-//     url: 'https://medium.com/@partidibambola/latest?format=json',
-//     success: function(data) {
-//       console.log(data)
-//     },
-//   });
-
 function loadMediumPosts() {
-  // Using YQL here https://developer.yahoo.com/yql/ because Medium won't let me JSONP
-  var yql_url = 'https://query.yahooapis.com/v1/public/yql'
-  var url = 'https://medium.com/@partidibambola/latest?format=json'
-  // $.ajax({
-  //   url: "https://medium.com/@partidibambola/latest?format=jsonp",
-  //   dataFormat: "json",
-  //   format: "get",
-  //   success: function(data) {
-  //     var $html = $(data)
-  //     //console.log(JSON.parse($html.substring($html.indexOf("{"))))
-  //     console.log(data)
-  //   }
-  // });
-
   $.ajax({
-    url: yql_url,
-    data: {
-      'q': 'SELECT * FROM html WHERE url="'+url+'"',
-      'format': 'json',
-      'jsonCompat': 'new',
-      'debug': 'true',
-      'diagnostics': 'true'
-    },
-    dataType: 'jsonp',
+    crossOrigin: true,
+    url: "https://medium.com/@partidibambola/latest?format=json",
+    context: {},
     success: function(data) {
-      console.log(data)
-      var html = $(data)[0].query.results.body
-      var json = JSON.parse(html.substring(html.indexOf("{")))
+      var json = JSON.parse(data.replace('])}while(1);</x>', ''))
       showPosts(json)
-    },
+    }
   });
 }
 
