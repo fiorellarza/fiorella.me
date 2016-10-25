@@ -12,53 +12,37 @@ $(document).ready(function() {
 //   });
 
 function loadMediumPosts() {
-  // Using YQL here https://developer.yahoo.com/yql/ because Medium won't let me JSONP
-  var yql_url = 'https://query.yahooapis.com/v1/public/yql'
-  var url = 'https://medium.com/@partidibambola/latest?format=json'
-  $.ajax({
-    url: 'https://medium.com/@partidibambola/latest?format=json',
-    dataFormat: 'jsonp',
-    data: {
-      'format': 'jsonp',
-      'type': 'post'
-    },
-    success: function(data) {
-      var $html = $(data)
-      //console.log(JSON.parse($html.substring($html.indexOf("{"))))
-      console.log(data)
-    }
-  });
-
+  // // Using YQL here https://developer.yahoo.com/yql/ because Medium won't let me JSONP
+  // var yql_url = 'https://query.yahooapis.com/v1/public/yql'
+  // var url = 'https://medium.com/@partidibambola/latest?format=json'
   // $.ajax({
-  //   url: 'https://medium.com/@partidibambola/latest?format=json',
-  //   data: {
-  //     'format': 'json',
-  //     'type': 'post'
-  //   },
+  //   url: "https://medium.com/@partidibambola/latest?format=jsonp",
+  //   dataFormat: "json",
+  //   format: "get",
   //   success: function(data) {
   //     var $html = $(data)
   //     //console.log(JSON.parse($html.substring($html.indexOf("{"))))
   //     console.log(data)
-  //   },
+  //   }
   // });
 
-  // $.ajax({
-  //   url: yql_url,
-  //   data: {
-  //     'q': 'SELECT * FROM html WHERE url="'+url+'"',
-  //     'format': 'json',
-  //     'jsonCompat': 'new',
-  //     'debug': 'true',
-  //     'diagnostics': 'true'
-  //   },
-  //   dataType: 'jsonp',
-  //   success: function(data) {
-  //     console.log(data)
-  //     var html = $(data)[0].query.results.body
-  //     var json = JSON.parse(html.substring(html.indexOf("{")))
-  //     showPosts(json)
-  //   },
-  // });
+  $.ajax({
+    url: yql_url,
+    data: {
+      'q': 'SELECT * FROM html WHERE url="'+url+'"',
+      'format': 'json',
+      'jsonCompat': 'new',
+      'debug': 'true',
+      'diagnostics': 'true'
+    },
+    dataType: 'jsonp',
+    success: function(data) {
+      console.log(data)
+      var html = $(data)[0].query.results.body
+      var json = JSON.parse(html.substring(html.indexOf("{")))
+      showPosts(json)
+    },
+  });
 }
 
 function showPosts(obj) {
