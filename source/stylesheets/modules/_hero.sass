@@ -1,6 +1,8 @@
 .hero
+  background-color: $purple
   background: linear-gradient(-30deg, lighten($purple, 20%), $purple)
   background: url(/images/fiorella.jpg)
+  background-size: cover
   color: $white
   display: flex
   align-items: center
@@ -28,7 +30,8 @@
     +pad(2 of 12)
 
 .hero__showreel
-  box-shadow: 0 0 1px rgba($white, 0.6)
+  background: $black
+  box-shadow: 0 0 2px rgba($white, 0.6)
   margin-bottom: 30px
   position: relative
   padding-bottom: 56.25%

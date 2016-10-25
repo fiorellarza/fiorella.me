@@ -84,8 +84,11 @@ activate :deploy do |deploy|
   deploy.build_before = true # default: false
   deploy.deploy_method = :git
   # Optional Settings
-  deploy.remote   = 'https://github.com/fiorellarza/fiorella.git'
+  deploy.remote   = 'git@github.com:fiorellarza/fiorella.me.git'
   deploy.branch   = 'gh-pages'
   # deploy.strategy = :submodule      # commit strategy: can be :force_push or :submodule, default: :force_push
   # deploy.commit_message = 'custom-message'      # commit message (can be empty), default: Automated commit at `timestamp` by middleman-deploy `version`
 end
+
+# Enable CORS so I can fetch stuff from medium.com. Code from https://github.com/middleman/middleman/issues/998
+require 'rack/cors'
