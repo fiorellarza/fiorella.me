@@ -17,10 +17,31 @@ function loadMediumPosts() {
   var url = 'https://medium.com/@partidibambola/latest?format=json'
   $.ajax({
     url: 'https://medium.com/@partidibambola/latest?format=json',
-    success: function(data) {
-      console.log(data)
+    dataFormat: 'jsonp',
+    data: {
+      'format': 'jsonp',
+      'type': 'post'
     },
+    success: function(data) {
+      var $html = $(data)
+      //console.log(JSON.parse($html.substring($html.indexOf("{"))))
+      console.log(data)
+    }
   });
+
+  // $.ajax({
+  //   url: 'https://medium.com/@partidibambola/latest?format=json',
+  //   data: {
+  //     'format': 'json',
+  //     'type': 'post'
+  //   },
+  //   success: function(data) {
+  //     var $html = $(data)
+  //     //console.log(JSON.parse($html.substring($html.indexOf("{"))))
+  //     console.log(data)
+  //   },
+  // });
+
   // $.ajax({
   //   url: yql_url,
   //   data: {
