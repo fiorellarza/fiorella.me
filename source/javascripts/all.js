@@ -6,11 +6,9 @@ $(document).ready(function() {
 
 function loadMediumPosts() {
   $.ajax({
-    crossOrigin: true,
-    url: "https://medium.com/@partidibambola/latest?format=json",
-    context: {},
-    success: function(data) {
-      var json = JSON.parse(data.replace('])}while(1);</x>', ''))
+    url: "https://frozen-harbor-32065.herokuapp.com?url=https://medium.com/@partidibambola/latest?format=json",
+    complete: function(data) {
+      var json = JSON.parse(data.responseText.replace('])}while(1);</x>', ''))
       showPosts(json)
     }
   });
