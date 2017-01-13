@@ -462,9 +462,9 @@ table {
   color: #6c2d55;
   display: inline-block;
   font-weight: 400;
-  margin-bottom: 30px;
+  margin-top: 30px;
   opacity: 0.95;
-  padding: 15px 30px 15px 55px;
+  padding: 15px 30px 15px 30px;
   transition: all 0.3s;
   user-select: none; }
   .button:hover {
@@ -472,6 +472,7 @@ table {
   .button:active {
     background: linear-gradient(90deg, #f2f2f2, #d9d9d9); }
   .button.-video {
+    padding: 15px 30px 15px 55px;
     position: relative; }
     .button.-video::after {
       content: "";
