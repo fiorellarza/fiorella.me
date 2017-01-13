@@ -13,11 +13,7 @@
   <meta name="google-site-verification" content="xns4J7VsDFSTLxgBa_X2MTO07TVjiNPfkIIs0uoJh1w" />
 
   <!-- Use title if it's in the page YAML frontmatter -->
-  <% if current_page.data.title.nil? || current_page.data.title.empty? %>
-      <title>Fiorella Rizzà</title>
-  <% else %>
-      <title><%= current_page.data.title %> | Fiorella Rizzà</title>
-  <% end %>
+  <title>Fiorella Rizzà | Copywriter and content strategist in Melbourne, Australia</title>
 
   <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/apple-touch-icon-152x152-precomposed.png" />
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png" />
@@ -28,7 +24,7 @@
   <link href="//fonts.googleapis.com/css?family=Lato:100,300,400,900&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   <link rel="icon" type="image/ico" href="/images/favicon.ico" />
   <%= stylesheet_link_tag :index %>
-  <%= javascript_include_tag :fast_click, :handlebars, :jquery, :all %>
+  <%= javascript_include_tag :fast_click, :modernizr, :handlebars, :jquery, :all %>
 </head>
 
 <body class="page--<%= page_classes %>">

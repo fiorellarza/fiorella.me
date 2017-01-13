@@ -1,0 +1,32 @@
+.button
+  background: $white
+  background: linear-gradient(90deg, $white, darken($white, 10%))
+  border-radius: 7px
+  color: $purple
+  display: inline-block
+  font-weight: 400
+  margin-bottom: 30px
+  opacity: 0.95
+  padding: 15px 30px 15px 55px
+  transition: all 0.3s
+  user-select: none
+
+  &:hover
+    opacity: 1
+
+  &:active
+    background: linear-gradient(90deg, darken($white, 5%), darken($white, 15%))
+
+  &.-video
+    position: relative
+    &::after
+      content: ""
+      width: 0
+      height: 0
+      border-top: 10px solid transparent
+      border-bottom: 10px solid transparent
+      border-left: 15px solid $purple
+      position: absolute
+      margin-top: -10px
+      top: 50%
+      left: 25px
